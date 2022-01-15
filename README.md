@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://ik.imagekit.io/kudysak8uv/logo2_wkzFleEF6.png">
+    <img src="https://www.pegasusone.com/wp-content/uploads/2015/08/fullstacklogo1-1.png">
 </h1>
 
 ## GIFS DE DEMONSTRAÇÃO
