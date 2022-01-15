@@ -41,7 +41,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 ```bash
 
     # Clonar o repositório
-    $ git clone https://github.com/danileao/rocketmusic
+    $ git clone https://github.com/MatheusSodreS/FullStack-Trin.ca
 
     # Entrar no diretório
     $ cd Desafio
