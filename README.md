@@ -2,12 +2,15 @@
     <img src="https://ik.imagekit.io/kudysak8uv/logo2_wkzFleEF6.png">
 </h1>
 
-<h1>
-    <img src="public/apresentacao.gif">
-</h1>
+## GIFS DE DEMONSTRAÇÃO
+<h2 aligh="center">
+   <img src="https://j.gifs.com/WPpzQW.gif">
+    
+   <img src="https://j.gifs.com/79Y7pw.gif">
+</h2>
 
 <h3 align="center">
-    <a href="https://rocketmusics.herokuapp.com/">Acessar a demonstração</a>
+    <a href="https://www.youtube.com/watch?v=pFpV48v1Mxs">Acessar a demonstração</a>
 <h3 >
 
 # Indice
@@ -18,7 +21,7 @@
 
 ## 🔖&nbsp; Sobre
 
-O projeto **RocketMusic** é um e-commerce que foi criado dentro do curso **Bootcamp GoStack** com o intuito de colocarmos em prática todo conteúdo estudado durante o curso.
+O projeto **Full Stack** veio atraves de um Desafio enviado pela Trin.ca!
 
 ---
 
@@ -41,15 +44,15 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
     $ git clone https://github.com/danileao/rocketmusic
 
     # Entrar no diretório
-    $ cd rocketmusic
+    $ cd Desafio
 
     # Instalar as dependências
-    $ yarn install
+    $ npm install (talvez seja necessário npm audit fix --force)
 
     # Iniciar o projeto
-    $ yarn start
+    $ npm start
 ```
 
 ---
 
-Desenvolvido 💜 por Daniele Leão Evangelista
+Desenvolvido 💜 por Matheus Sodré dos Santos
