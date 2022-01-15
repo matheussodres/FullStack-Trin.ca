@@ -3,10 +3,16 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 
+//Motivo da não utilização do useMemo 
+//e não conseguir replicar ele dentro do projeto.
+
 const AddPost = ({ contacts, addContact }) => {
   const [name, setName] = useState("");
   const [valor, setValor] = useState("");
   const [phone, setPhone] = useState("");
+  const [bebida, setBebida] = useState("");
+  const [valorTotal, setValorTotal] = useState("") ;
+  const [dataFesta, setDataFesta] = useState("");
 
   const history = useHistory();
 
@@ -16,18 +22,23 @@ const AddPost = ({ contacts, addContact }) => {
       contact.phone === phone ? contact : null
     );
 
-    if (!valor || !name || !phone) {
+    if (!valor || !name || !phone || !bebida || !data) {
       return toast.warning("Por favor preencha todos os campos!!");
     }
     if (checkContactPhoneExists.length > 0) {
       return toast.error("Esse telefone já existe!!");
     }
 
+    //if
+
     const data = {
       id: contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 0,
       valor,
       name,
       phone,
+      bebida,
+      valorTotal,
+      dataFesta,
     };
 
     addContact(data);
@@ -53,7 +64,7 @@ const AddPost = ({ contacts, addContact }) => {
             <div className="form-group">
               <input
                 className="form-control"
-                type="numeric"
+                type="number"
                 placeholder="Valor"
                 value={valor}
                 onChange={(e) => setValor(e.target.value)}
@@ -66,6 +77,33 @@ const AddPost = ({ contacts, addContact }) => {
                 placeholder="Telefone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Vai querer bebida?"
+                value={bebida}
+                onChange={(e) => setBebida(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="number"
+                placeholder="Valor total"
+                value={valorTotal}
+                onChange={(e) => setValorTotal(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="date"
+                placeholder="Escolha um dia"
+                value={dataFesta}
+                onChange={(e) => setDataFesta(e.target.value)}
               />
             </div>
             <div className="form-group">

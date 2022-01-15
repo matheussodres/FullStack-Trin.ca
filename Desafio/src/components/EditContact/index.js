@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
 
+//Motivo da não utilização do useMemo 
+//e não conseguir replicar ele dentro do projeto.
 const EditContact = ({ contacts, updateContact }) => {
   const { id } = useParams();
   const history = useHistory();
@@ -14,21 +16,25 @@ const EditContact = ({ contacts, updateContact }) => {
     setName(currentContact.name);
     setValor(currentContact.valor);
     setPhone(currentContact.phone);
+    setBebida(currentContact.bebida);
+    setValorTotal(currentContact.valorTotal);
+    setDataFesta(currentContact.dataFesta);
   }, [currentContact]);
 
   const [name, setName] = useState("");
   const [valor, setValor] = useState("");
   const [phone, setPhone] = useState("");
+  const [bebida, setBebida] = useState("");
+  const [valorTotal, setValorTotal] = useState("");
+  const [dataFesta, setDataFesta] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const checkContactPhoneExists = contacts.filter((contact) =>
-      contact.phone === phone && contact.id !== currentContact.id
-        ? contact
-        : null
+      contact.phone === phone && contact.id !== currentContact.id ? contact: null
     );
 
-    if (!valor || !name || !phone) {
+    if (!valor || !name || !phone || !bebida) {
       return toast.warning("Por favor, completo os dados!");
     }
     if (checkContactPhoneExists.length > 0) {
@@ -40,6 +46,9 @@ const EditContact = ({ contacts, updateContact }) => {
       valor,
       name,
       phone,
+      bebida,
+      valorTotal,
+      dataFesta,
     };
 
     updateContact(data);
@@ -54,7 +63,7 @@ const EditContact = ({ contacts, updateContact }) => {
           className="btn btn-dark ml-auto my-5"
           onClick={() => history.push("/")}
         >
-          Voltar
+          VOLTAR
         </button>
         <div className="col-md-6 mx-auto shadow p-5">
           {currentContact ? (
@@ -83,16 +92,43 @@ const EditContact = ({ contacts, updateContact }) => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
+              <div className="form-group">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Vai querer bebida?"
+                value={bebida}
+                onChange={(e) => setBebida(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Valor total: "
+                value={valorTotal}
+                onChange={(e) => setValorTotal(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="date"
+                placeholder="Escolha a data"
+                value={dataFesta}
+                onChange={(e) => setDataFesta(e.target.value)}
+              />
+            </div>
               <div className="form-group d-flex align-items-center justify-content-between my-2">
                 <button type="submit" className="btn btn-primary">
-                  Atualizar algum dado
+                  ATUALIZAR
                 </button>
                 <button
                   type="button"
                   className="btn btn-danger"
                   onClick={() => history.push("/")}
                 >
-                  Cancelar
+                  CANCELAR
                 </button>
               </div>
             </form>

@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Home = ({ contacts, deleteContact }) => {
+//Motivo da não utilização do useMemo 
+//e não conseguir replicar ele dentro do projeto.
+function Home({ contacts, deleteContact }) {
   return (
     <div className="container">
       <div className="row d-flex flex-column">
@@ -17,8 +19,9 @@ const Home = ({ contacts, deleteContact }) => {
                 <th scope="col">Nome</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Valor</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">Bebida</th>
+                <th scope="col">Valor Total</th>
+                <th scope="col">Data</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -30,6 +33,9 @@ const Home = ({ contacts, deleteContact }) => {
                     <td>{contact.name}</td>
                     <td>{contact.phone}</td>
                     <td>{contact.valor}</td>
+                    <td>{contact.bebida}</td>
+                    <td>{contact.ValorTotal}</td>
+                    <td>{contact.dataFesta}</td>
                     <td></td>
                     <td>
                       <Link
@@ -59,7 +65,7 @@ const Home = ({ contacts, deleteContact }) => {
       </div>
     </div>
   );
-};
+}
 
 const mapStateToProps = (state) => ({
   contacts: state,
