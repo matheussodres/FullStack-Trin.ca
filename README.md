@@ -4,13 +4,11 @@
 
 ## GIFS DE DEMONSTRAÇÃO
 <h2 aligh="center">
-   <img src="https://j.gifs.com/WPpzQW.gif">
-    
-   <img src="https://j.gifs.com/79Y7pw.gif">
+   <img src="https://j.gifs.com/nR7onY.gif">
 </h2>
 
 <h3 align="center">
-    <a href="https://www.youtube.com/watch?v=pFpV48v1Mxs">Acessar a demonstração</a>
+    <a href="https://www.youtube.com/watch?v=g6NhDJE9isA">Acessar a demonstração</a>
 <h3 >
 
 # Indice
@@ -24,7 +22,15 @@
 O projeto **Full Stack** veio atraves de um Desafio enviado pela Trin.ca!
 
 ---
+## 🚀 Etaps do Desafio realizadas
 
+    ✔ Incluir um novo churrasco com data, descrição e observações adicionais;
+    ✔ Adicionar e remover participantes (colocando o seu valor de contribuição);
+    ✔ Colocar um valor sugerido por usuário de contribuição (valor com e sem bebida inclusa);
+    ✔ Visualizar os detalhes do churrasco, total de participantes e valor arrecadado.
+    
+---
+    
 ## 🚀 Tecnologias utilizadas
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
