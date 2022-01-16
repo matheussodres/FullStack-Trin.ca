@@ -5,9 +5,10 @@ import { toast } from "react-toastify";
 
 const AddPost = ({ contacts, addContact }) => {
   const [name, setName] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState("date");
   const [phone, setPhone] = useState("");
   const [valor, setValor] = useState("");
+  const [descricao, setDescricao] = useState("");
 
   const history = useHistory();
 
@@ -30,6 +31,7 @@ const AddPost = ({ contacts, addContact }) => {
       name,
       phone,
       valor,
+      descricao,
     };
 
     addContact(data);
@@ -66,7 +68,7 @@ const AddPost = ({ contacts, addContact }) => {
             <div className="form-group">
               <input
                 className="form-control"
-                type="number"
+                type="text"
                 placeholder="Telefone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -81,6 +83,15 @@ const AddPost = ({ contacts, addContact }) => {
                 onChange={(e) => setValor(e.target.value)}
               />
             </div>
+            <div className="form-group">
+                <input
+                  className="form-control"
+                  type="text"
+                  value={descricao}
+                  placeholder={"Adicione aqui, se tem alguma observação."}
+                  onChange={(e) => setDescricao(e.target.value)}
+                />
+              </div>
             <div className="form-group">
               <input
                 className="btn btn-block btn-dark"

@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className="col-md-12 bg-dark py-2">
       <nav className="navbar bg-dark navbar-dark">
         <Link to={"/"} className="navbar-brand ml-5">
-          Desafio ☼ Trin.ca
+          Desafio × Trin.ca - Agenda do Churras
         </Link>
       </nav>
     </div>

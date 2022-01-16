@@ -9,6 +9,7 @@ const Home = ({ contacts, deleteContact }) => {
         <Link to="/add" className="btn btn-outline-dark my-5 ml-auto ">
           Adicionar novo integrante
         </Link>
+        
         <div className="col-md-10 mx-auto my-4">
           <table className="table table-hover">
             <thead className="table-header bg-dark text-white">
@@ -18,6 +19,8 @@ const Home = ({ contacts, deleteContact }) => {
                 <th scope="col">Data</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Valor</th>
+                <th scope="col">Descrição/Observações</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -29,6 +32,7 @@ const Home = ({ contacts, deleteContact }) => {
                     <td>{contact.data}</td>
                     <td>{contact.phone}</td>
                     <td>{contact.valor}</td>
+                    <td>{contact.descricao}</td>
                     <td>
                       <Link
                         to={`/edit/${contact.id}`}

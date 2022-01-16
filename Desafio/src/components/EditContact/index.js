@@ -15,12 +15,14 @@ const EditContact = ({ contacts, updateContact }) => {
     setData(currentContact.data);
     setPhone(currentContact.phone);
     setValor(currentContact.valor);
+    setDescricao(currentContact.descricao)
   }, [currentContact]);
 
   const [name, setName] = useState("");
   const [data, setData] = useState("");
   const [phone, setPhone] = useState("");
   const [valor, setValor] = useState("");
+  const [descricao, setDescricao] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +45,7 @@ const EditContact = ({ contacts, updateContact }) => {
       name,
       phone,
       valor,
+      descricao,
     };
 
     updateContact(data);
@@ -87,8 +90,16 @@ const EditContact = ({ contacts, updateContact }) => {
                 <input
                   className="form-control"
                   value={valor}
-                  placeholder={"Valor"}
+                  placeholder={"Com bebida: 40 Sem bebida: 20"}
                   onChange={(e) => setValor(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  value={descricao}
+                  placeholder={"Adicione aqui, se tem alguma observação."}
+                  onChange={(e) => setDescricao(e.target.value)}
                 />
               </div>
               <div className="form-group d-flex align-items-center justify-content-between my-2">

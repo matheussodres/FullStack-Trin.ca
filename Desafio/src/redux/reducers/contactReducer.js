@@ -1,6 +1,6 @@
 const initialState = [
-  { id: 1, name: "Matheus Sodré dos Santos", telefone: '55539555555', valor: 25, bebida: "Sim", valorTotal: 25,  data: '04/06/1998' },
-  { id: 2, name: "Otavio Moreira Sodré", telefone: 55539555555, valor: 25, bebida: "Sim", valorTotal: 25,  data: '04/06/1998'},
+  { id: 1, name: "Matheus Sodré dos Santos", telefone: "53981487107", valor: 25, bebida: "Sim", valorTotal: 25,  data: '04/06/1998', descricao: "Teste de Descricao"},
+  { id: 2, name: "Otavio Moreira Sodré", telefone: "53981487107", valor: 25, bebida: "Sim", valorTotal: 25,  data: '04/06/1998', descricao: "Teste de Descricao"},
 ];
 
 export const contactReducer = (state = initialState, action) => {
