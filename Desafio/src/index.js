@@ -23,3 +23,5 @@ ReactDOM.render(
   </Provider>,
   rootElement
 );
+
+//©Desenvolvido 💜 por Matheus Sodré dos Santos

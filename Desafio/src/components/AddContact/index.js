@@ -3,16 +3,11 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
 
-//Motivo da não utilização do useMemo 
-//e não conseguir replicar ele dentro do projeto.
-
 const AddPost = ({ contacts, addContact }) => {
   const [name, setName] = useState("");
-  const [valor, setValor] = useState("");
+  const [data, setData] = useState("");
   const [phone, setPhone] = useState("");
-  const [bebida, setBebida] = useState("");
-  const [valorTotal, setValorTotal] = useState("") ;
-  const [dataFesta, setDataFesta] = useState("");
+  const [valor, setValor] = useState("");
 
   const history = useHistory();
 
@@ -22,33 +17,31 @@ const AddPost = ({ contacts, addContact }) => {
       contact.phone === phone ? contact : null
     );
 
-    if (!valor || !name || !phone || !bebida || !data) {
-      return toast.warning("Por favor preencha todos os campos!!");
+    if (!name || !phone || !valor) {
+      return toast.warning("Por favor, complete os dados!");
     }
     if (checkContactPhoneExists.length > 0) {
-      return toast.error("Esse telefone já existe!!");
+      return toast.error("Esse telefone já existe!");
     }
-
-    //if
 
     const data = {
       id: contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 0,
-      valor,
+      data,
       name,
       phone,
-      bebida,
-      valorTotal,
-      dataFesta,
+      valor,
     };
 
     addContact(data);
-    toast.success("Pessoa adiciona com sucesso!");
+    toast.success("Contato adicionar com sucesso!");
     history.push("/");
   };
 
   return (
     <div className="container-fluid">
-      <h1 className="text-center text-dark py-3 display-2">Adicionar pessoa</h1>
+      
+      <h1 className="text-center text-dark py-3 display-2">Add Integrante</h1>
+      
       <div className="row">
         <div className="col-md-6 p-5 mx-auto shadow">
           <form onSubmit={handleSubmit}>
@@ -64,10 +57,10 @@ const AddPost = ({ contacts, addContact }) => {
             <div className="form-group">
               <input
                 className="form-control"
-                type="number"
-                placeholder="Valor"
-                value={valor}
-                onChange={(e) => setValor(e.target.value)}
+                type="date"
+                placeholder=""
+                value={data}
+                onChange={(e) => setData(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -82,37 +75,21 @@ const AddPost = ({ contacts, addContact }) => {
             <div className="form-group">
               <input
                 className="form-control"
-                type="text"
-                placeholder="Vai querer bebida?"
-                value={bebida}
-                onChange={(e) => setBebida(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                className="form-control"
                 type="number"
-                placeholder="Valor total"
-                value={valorTotal}
-                onChange={(e) => setValorTotal(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="date"
-                placeholder="Escolha um dia"
-                value={dataFesta}
-                onChange={(e) => setDataFesta(e.target.value)}
+                placeholder="Com bebida: 40 Sem bebida: 20"
+                value={valor}
+                onChange={(e) => setValor(e.target.value)}
               />
             </div>
             <div className="form-group">
               <input
                 className="btn btn-block btn-dark"
                 type="submit"
-                value="Adicionar pessoa!"
+                value="ADICIONAR INTEGRANTE"
               />
+              
             </div>
+            
           </form>
         </div>
       </div>
@@ -130,3 +107,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPost);
+//©Desenvolvido 💜 por Matheus Sodré dos Santos

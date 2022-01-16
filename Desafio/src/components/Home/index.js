@@ -2,27 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-//Motivo da não utilização do useMemo 
-//e não conseguir replicar ele dentro do projeto.
-function Home({ contacts, deleteContact }) {
+const Home = ({ contacts, deleteContact }) => {
   return (
     <div className="container">
       <div className="row d-flex flex-column">
         <Link to="/add" className="btn btn-outline-dark my-5 ml-auto ">
-          Adicionar novo
+          Adicionar novo integrante
         </Link>
         <div className="col-md-10 mx-auto my-4">
           <table className="table table-hover">
             <thead className="table-header bg-dark text-white">
               <tr>
-                <th scope="col">Id</th>
+                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Data</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Valor</th>
-                <th scope="col">Bebida</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Data</th>
-                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -31,32 +26,29 @@ function Home({ contacts, deleteContact }) {
                   <tr key={id}>
                     <td>{id + 1}</td>
                     <td>{contact.name}</td>
+                    <td>{contact.data}</td>
                     <td>{contact.phone}</td>
                     <td>{contact.valor}</td>
-                    <td>{contact.bebida}</td>
-                    <td>{contact.ValorTotal}</td>
-                    <td>{contact.dataFesta}</td>
-                    <td></td>
                     <td>
                       <Link
                         to={`/edit/${contact.id}`}
                         className="btn btn-sm btn-primary mr-1"
                       >
-                        Editar
+                        Editar  
                       </Link>
                       <button
                         type="button"
                         onClick={() => deleteContact(contact.id)}
                         className="btn btn-sm btn-danger"
                       >
-                        Excluir
+                        Deletar
                       </button>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <th>Sem pessoas!</th>
+                  <th>Não há integrantes, adicione!</th>
                 </tr>
               )}
             </tbody>
@@ -65,7 +57,7 @@ function Home({ contacts, deleteContact }) {
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => ({
   contacts: state,
@@ -78,3 +70,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+//©Desenvolvido 💜 por Matheus Sodré dos Santos
